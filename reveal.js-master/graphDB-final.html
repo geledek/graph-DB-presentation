@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Graph databases</title>
+
+		<meta name="description" content="assignment 3 presentation">
+		<meta name="author" content="siddharth">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="theme-font-league theme-color-sea-yellow" style="width: 100%; height: 100%;">
+    <div class="reveal">
+        <div class="slides">
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 149px; top: 234px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <h1>Graph Databases</h1>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 240px; top: 331px;">
+                    <div class="sl-block-content" style="z-index: 12;">
+                        <p>By</p>
+                        <p>Han Jianglei (G1403219J)</p>
+                        <p>&amp;</p>
+                        <p>Siddharth Chandrakant (G1400814E)</p>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content">
+                        <h2>Limitations of Traditional SQL Databases</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 131px; top: 264px; height: auto;">
+                    <div class="sl-block-content">
+                        <ul>
+                            <li>Data dispersed across multiple tables.</li>
+                            <li>Need to perform multiple joins to retrieve whole data. Computationally expensive for large datasets.</li>
+                            <li>Enforcing constraints for update/insert/delete.</li>
+                            <li>Above all - burden for programmer due to complex design.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content">
+                        <h2>NoSQL - The way forward</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 114px; top: 264px; height: auto;">
+                    <div class="sl-block-content">
+                        <ul>
+                            <li>NoSQL= Not Only SQL. [SQL + a whole lot more]</li>
+                            <li>4 categories of NoSQL databases -&nbsp;
+	
+                                <ul>
+                                    <li>Key-value stores. &nbsp;Eg - Redis</li>
+                                    <li>Column Families.&nbsp;Eg - Cassandra</li>
+                                    <li>Document Databases. Eg - MongoDB</li>
+                                    <li>Graph Databases. Eg - Neo4J</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <h2>Introducing Graphs</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 117px; top: 264px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 12;">
+                        <ul>
+                            <li>Graph - Abstract representation of a set of 'objects'.</li>
+                            <li>A pair of objects may be connected by 'links'.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 521px; height: 174.138586956522px; left: 244px; top: 360.930706521739px;">
+                    <div class="sl-block-content" style="z-index: 14;">
+                        <img style="visibility: visible;" data-natural-width="368" data-natural-height="123" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/siddharthchandrakant/images/1265764/pasted-from-clipboard.png"/>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 10;">
+                        <h2>Types of graphs</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 762px; height: 325.457800511509px; left: 125px; top: 273px;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <img style="visibility: visible;" data-natural-width="782" data-natural-height="334" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/siddharthchandrakant/images/1266185/graphs.PNG"/>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <h2>Example of Labeled property Graph</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="image" style="min-width: 30px; min-height: 30px; width: 634px; height: 369.116138763198px; left: 240px; top: 264px;">
+                    <div class="sl-block-content" style="z-index: 12;">
+                        <img style="visibility: visible;" data-natural-width="663" data-natural-height="386" data-src="https://s3.amazonaws.com/media-p.slid.es/uploads/siddharthchandrakant/images/1265827/pasted-from-clipboard.png"/>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <h2>Graph Databases</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 264px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 12;">
+                        <ul>
+                            <li>A database with an explicit graph structure.</li>
+                            <li>Each node knows all its adjacent nodes&nbsp;-&gt; no index required.</li>
+                            <li>Advantages:
+	
+                                <ul>
+                                    <li>closer to real world object representation.</li>
+                                    <li>no joins -&gt; better scalability.</li>
+                                    <li>constant time retrieval, irrespective of depth or breadth.</li>
+                                    <li>No rigid schema -&gt;&nbsp;better flexibility&nbsp;in design.&nbsp;</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <h2>Typical functionalities supported</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 150px; top: 264px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 12;">
+                        <ul>
+                            <li>Data storage (in memory/external memory)</li>
+                            <li>Multiple formats for graph representation.</li>
+                            <li>DDL, DML, DQL</li>
+                            <li>Adjacency, Reachability, Pattern Matching, Summarization &amp; Aggregation query support.</li>
+                            <li>External APIs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <h2>Applications</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 272px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 12; color: rgb(255, 255, 255);">
+                        <ul>
+                            <li>Social networking.</li>
+                            <li>Recommendations/ Match-making apps.</li>
+                            <li>Path finding&nbsp;(Eg - Linkedin connections).</li>
+                            <li>&nbsp;Shortest path (travelling salesman problem).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="has-dark-background" data-background-color="#0c343d">
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 190px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 11;">
+                        <h2>Neo4j in Action</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 272px; height: auto;">
+                    <div class="sl-block-content" style="z-index: 12;" dir="ui">
+                        <p>Stay tuned for the live demo.</p>
+                        <p>Watch &amp; be amazed :)</p>
+                        <p>&nbsp;</p>
+                        <p>Thank you.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
